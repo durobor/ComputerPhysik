@@ -9,7 +9,7 @@
 #define INTERVAL_STEP .1
 
 int main(){
-	float alpha, absV, x, y, xV, yV, tx, ty, kinE;
+	float alpha, absV, x, x0, y, xV, yV, t, tx, ty, kinE;
 	int validInput = 0;
 
 	// Get valid starting conditions from user
@@ -18,7 +18,7 @@ int main(){
 		scanf("%f", &absV);
 		printf("Enter kicking angle (between 0 and 90 degree): ");
 		scanf("%f", &alpha);
-		if(0>=absV || 0>=alpha || 90<=alpha){
+		if(0>absV || 0>alpha || 90<alpha){
 			printf("Dont be silly...\n");
 			validInput=0;
 		}
@@ -27,25 +27,27 @@ int main(){
 
 	// Set up variables for calculation
 	alpha=alpha/180.*M_PI;
-	x=START_X;
+	x=x0=START_X;
 	y=START_Y;
 	xV=absV*cos(alpha);
 	yV=absV*sin(alpha);
 	kinE=1./2.*M_BALL*pow(absV,2);
+	t=0.;
 	tx=0.;
 	ty=0.;
 
 	// Print trajectory
 	while(EKIN_MINIMUM<=kinE){
 		if(0==y){
-			printf("r(%.2f)=(%.1f,%.1f)	Ball hits the ground!\n", tx, x, y);
+			printf("r(%.2f)=(%.1f,%.1f)	Ball hits the ground!\n", t, x, y);
 		}
 		else{
-			printf("r(%.2f)=(%.1f,%.1f)\n", tx, x, y);
+			printf("r(%.2f)=(%.1f,%.1f)\n", t, x, y);
 		}
+		t+=INTERVAL_STEP;
 		tx+=INTERVAL_STEP;
 		ty+=INTERVAL_STEP;
-		x=START_X+xV*tx;
+		x=x0+xV*tx;
 		y=START_Y+yV*ty+1./2.*G*pow(ty,2);
 
 		// Adjust yV, ty, kinE and absV once y hits 0
@@ -56,8 +58,10 @@ int main(){
 			absV=sqrt(2*kinE/M_BALL);
 			xV=absV*cos(alpha);
 			yV=absV*sin(alpha);
+			x0=x;
 			y=0.;
 			ty=0.;
+			tx=0.;
 		}
 	}
 }
