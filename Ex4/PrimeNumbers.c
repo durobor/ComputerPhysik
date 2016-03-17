@@ -30,12 +30,6 @@ int main(){
 	// Search for primes below limit
 	printf("{%d, ", smallestPrime.p);
 	while(limit>=candidate){
-//		printf("\nsmallestPrime.p: %d\n", smallestPrime.p);
-//		printf("currentPrime->p: %d\n", currentPrime->p);
-//		printf("biggestPrime->p: %d\n", biggestPrime->p);
-//		printf("sqrt(%d)=%f\n", candidate, sqrt(candidate));
-//		printf("%d%%%d=%d\n", candidate, currentPrime->p, candidate%currentPrime->p);
-		
 		if(0==candidate%(currentPrime->p)){
 			candidate+=2;
 			currentPrime=&smallestPrime;
@@ -44,41 +38,14 @@ int main(){
 			currentPrime=currentPrime->next;
 		}
 		else{
-			//debugging===============================================================
-//			if(5==candidate){
-//				printf("candidate: %d", candidate);
-//				printf("\nsmallestPrime.p: %d\n", smallestPrime.p);
-//				printf("smallestPrime.next->p: %d\n", smallestPrime.next->p);
-//				printf("currentPrime->p: %d\n", currentPrime->p);
-//				printf("currentPrime->next->p: %d\n", currentPrime->next->p);
-//				printf("biggestPrime->p: %d\n", biggestPrime->p);
-//			}
-			//debugging===============================================================
-			//smallestPrime: 2
-			//currentPrime: 3
-			//biggestPrime: 3
-				if(5==candidate) printf("\nsmallestPrime.next->p: %d\n", smallestPrime.next->p);
-			prime newPrime = { candidate };
-//			newPrime.p=candidate;
-				if(5==candidate) printf("\nsmallestPrime.next->p: %d\n", smallestPrime.next->p);
+			prime newPrime;
+			if(5==candidate) printf("\nsmallestPrime.next->p: %d", smallestPrime.next->p);
+			newPrime.p=candidate;
+			if(5==candidate) printf("\nSome magicksx is happening (∩｀-´)⊃━☆ﾟ.*･｡ﾟ");
+			if(5==candidate) printf("\nsmallestPrime.next->p: %d\n", smallestPrime.next->p);
 			biggestPrime->next=&newPrime;
 			biggestPrime=&newPrime;
 			currentPrime=&smallestPrime;
-			//newPrime: 5
-			//biggest->next: 5
-			//biggest: 5
-			/*
-			//debugging===============================================================
-			if(5==candidate){
-				printf("candidate: %d", candidate);
-				printf("\nsmallestPrime.p: %d\n", smallestPrime.p);
-				printf("smallestPrime->next->p: %d\n", smallestPrime.next->p);
-				printf("currentPrime->p: %d\n", currentPrime->p);
-				printf("currentPrime->next->p: %d\n", currentPrime->next->p);
-				printf("biggestPrime->p: %d\n", biggestPrime->p);
-			}
-			//debugging===============================================================
-			//*/
 			candidate+=2;
 			printf("%d, ", biggestPrime->p);
 		}
