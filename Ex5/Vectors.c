@@ -1,4 +1,4 @@
-#inlcude <stdio.h>
+#include <stdio.h>
 
 #define DIM 3
 
@@ -7,11 +7,11 @@ int main(){
 	printf("Enter two vectors:\n");
 	int i;
 	for(i=0;DIM>i;++i){
-		printf("A%d = ", i);
+		printf("A%d = ", i+1);
 		scanf("%f", &A[i]);
 	}
 	for(i=0;DIM>i;++i){
-		printf("B%d = ", i);
+		printf("B%d = ", i+1);
 		scanf("%f", &B[i]);
 	}
 	float scalarProduct=0.f;
@@ -22,6 +22,6 @@ int main(){
 	printf("Vector product between A and B:\n");
 	for(i=0;DIM>i;++i){
 		C[i]=A[(i+1)%DIM]*B[(i+2)%DIM]-A[(i+2)%DIM]*B[(i+1)%DIM];
-		printf("C%d = %f", i, C[i]);
+		printf("C%d = %f\n", i, C[i]);
 	}
 }
