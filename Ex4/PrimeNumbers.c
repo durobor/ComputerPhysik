@@ -41,7 +41,7 @@ int main(){
 			prime newPrime;
 			if(5==candidate) printf("\nsmallestPrime.next->p: %d", smallestPrime.next->p);
 			newPrime.p=candidate;
-			if(5==candidate) printf("\nSome magicksx is happening (∩｀-´)⊃━☆ﾟ.*･｡ﾟ");
+			if(5==candidate) printf("\nSome magickxs is happening (∩｀-´)⊃━☆ﾟ.*･｡ﾟ");
 			if(5==candidate) printf("\nsmallestPrime.next->p: %d\n", smallestPrime.next->p);
 			biggestPrime->next=&newPrime;
 			biggestPrime=&newPrime;
