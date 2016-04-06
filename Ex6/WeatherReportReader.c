@@ -4,11 +4,6 @@
 #define FILENAME "weather.txt"
 #define NMBR_OF_MEAS 1440
 
-void readReport();
-void calcAverages();
-
-#define FILENAME "weather.txt"
-#define NMBR_OF_MEAS 1440
 
 void readReport();
 void calcAverages();
