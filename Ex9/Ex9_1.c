@@ -45,7 +45,7 @@ int main(){
 	printf("\nComparison of precision between the two methoods:\n");
 	printf("Iteration\tBisection\tNewton\n");
 	for(i=0;i<ITER_COUNT;++i){
-		printf("%d\t\t%fl\t%fl\n", i, prec_bi[i], prec_ne[i]);
+		printf("%d\t\t%.9fl\t%.9fl\n", i, prec_bi[i], prec_ne[i]);
 	}
 
 	return 0;
